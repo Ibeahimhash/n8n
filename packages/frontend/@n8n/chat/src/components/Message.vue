@@ -104,10 +104,10 @@ onMounted(async () => {
 </script>
 
 <template>
-	<div ref="messageContainer" class="chat-message" :class="classes">
-		<div v-if="!!$slots.beforeMessage" class="chat-message-actions">
-			<slot name="beforeMessage" v-bind="{ message }" />
-		</div>
+<div ref="messageContainer" class="chat-message" :class="classes">
+    <div v-if="$slots.beforeMessage" class="chat-message-actions">
+        <slot name="beforeMessage" v-bind="{ message }" />
+    </div>
 		<slot>
 			<template v-if="message.type === 'component' && messageComponents[message.key]">
 				<component :is="messageComponents[message.key]" v-bind="message.arguments" />
